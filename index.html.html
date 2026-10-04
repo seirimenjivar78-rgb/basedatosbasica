@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)file:///C:/Users/user/Music/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INVERSIONES GRACE - Sistema Real</title>
+<link href="./INVERSIONES GRACE - Proyecto final_files/css2" rel="stylesheet">
+<link rel="stylesheet" href="./INVERSIONES GRACE - Proyecto final_files/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f6f8fc;color:#333}
+#loginScreen{position:fixed;inset:0;background:radial-gradient(circle at 30% 20%,#1e90ff,#0b2e6e 70%);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+.login-box{background:white;padding:40px 30px;border-radius:24px;max-width:460px;width:100%;text-align:center;box-shadow:0 30px 60px rgba(0,0,0,0.25)}
+.login-box .logo{width:70px;height:70px;background:linear-gradient(135deg,#0b2e6e,#1e90ff);border-radius:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;color:white;font-size:30px}
+.role-btn{width:100%;padding:16px;border:none;border-radius:12px;margin-bottom:12px;cursor:pointer;font-weight:700;font-size:16px}
+.role-admin{background:#0b2e6e;color:white} .role-cliente{background:#ffcc00;color:#0b2e6e}
+header{background:white;border-bottom:1px solid #eef2f7;padding:12px 22px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;flex-wrap:wrap}
+header .brand{display:flex;align-items:center;gap:10px} header .brand .icon{width:42px;height:42px;background:#0b2e6e;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#ffcc00}
+header .rol-badge{background:#eef3ff;color:#0b2e6e;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:800;border:1px solid #d6e0ff}
+nav{display:flex;gap:6px;flex-wrap:wrap;max-width:780px} nav a{color:#5a6a85;text-decoration:none;font-size:11px;font-weight:600;cursor:pointer;padding:8px 12px;border-radius:20px;background:#f4f6fb}
+nav a.active, nav a:hover{background:#0b2e6e;color:white}
+.seccion{display:none;padding:22px;max-width:1350px;margin:auto} .seccion.active{display:block}
+.hero{background:linear-gradient(105deg,#0b2e6e 0%,#1649a8 55%,#3b82f6 100%);color:white;padding:50px 30px;border-radius:20px;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:18px}
+.stat-card{background:white;padding:18px;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,0.05);border:1px solid #eef2f7;text-align:center}
+.catalogo-section{margin-bottom:28px}
+.catalogo-titulo{background:white;padding:12px 18px;border-radius:12px;border-left:5px solid #0b2e6e;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.catalogo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.card{background:white;border-radius:16px;padding:12px;box-shadow:0 4px 14px rgba(0,0,0,0.06);border:1px solid #eef2f7;text-align:center}
+.card img{width:100%;height:150px;object-fit:contain;background:#f8faff;border-radius:12px;padding:10px}
+.card h3{font-size:13px;margin:8px 0 2px} .card .desc{font-size:10.5px;color:#6b7a99;height:28px;line-height:1.3}
+.card .old{font-size:11px;color:#a0aec0;text-decoration:line-through} .card .price{color:#0b2e6e;font-weight:800;font-size:17px;margin-left:6px}
+.card button{background:#0b2e6e;color:white;border:none;padding:9px;border-radius:10px;width:100%;margin-top:8px;cursor:pointer;font-weight:600;font-size:12px}
+.box{background:white;border-radius:16px;padding:24px;box-shadow:0 4px 14px rgba(0,0,0,0.05);border:1px solid #eef2f7;margin-bottom:18px}
+.box-gris{background:#eef2f7;border-radius:16px;padding:24px;border:1px solid #dde3ee;margin-bottom:18px}
+table{width:100%;border-collapse:collapse;margin-top:10px} table th{background:#f7f9ff;color:#0b2e6e;padding:10px;font-size:11px} table td{border-bottom:1px solid #f1f5f9;padding:10px;font-size:12px}
+.form-cliente input, .form-cliente select{width:100%;padding:11px;margin:6px 0;border:1.5px solid #e2e8f0;border-radius:10px;font-size:13px}
+.btn-factura{background:#0b2e6e;color:white;width:100%;padding:14px;border:none;border-radius:12px;margin-top:12px;cursor:pointer;font-weight:700}
+#facturaModal{display:none;position:fixed;inset:0;background:rgba(5,15,40,0.6);z-index:300;overflow:auto;padding:20px} #facturaBox{background:white;width:860px;max-width:95%;margin:20px auto;padding:0;border-radius:16px;overflow:hidden;border:2px solid #0b2e6e}
+.hidden{display:none !important}
+.diagrama-vertical{position:relative;max-width:700px;margin:30px auto;padding-left:30px}
+.diagrama-vertical::before{content:'';position:absolute;left:34px;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,#0b2e6e,#3b82f6,#ffcc00);border-radius:10px}
+.paso{position:relative;display:flex;gap:18px;margin-bottom:22px;background:white;border-radius:18px;padding:18px;border:1px solid #e2e8f0;box-shadow:0 8px 20px rgba(11,46,110,0.07)}
+.paso-num{width:52px;height:52px;min-width:52px;background:linear-gradient(135deg,#0b2e6e,#3b82f6);color:white;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px}
+.mision-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px} @media(max-width:900px){.mision-grid{grid-template-columns:1fr}}
+.stock-verde{background:#dcfce7;color:#166534;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700}
+.stock-rojo{background:#fee2e2;color:#991b1b;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
+</style>
+</head>
+<body>
+
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="logo"><i class="fa-solid fa-house-chimney"></i></div>
+    <h1 style="color:#0b2e6e;font-weight:800">INVERSIONES GRACE</h1>
+    <p style="color:#6b7a99;font-size:13px">Omoa, Cortés - Sistema de Ventas</p>
+    <div style="margin-top:20px">
+    <button class="role-btn role-admin" onclick="login('admin')">Administrador</button>
+    <button class="role-btn role-cliente" onclick="login('cliente')">Cliente</button>
+    </div>
+  </div>
+</div>
+
+<header id="mainHeader" style="display:none">
+<div class="brand">
+  <div class="icon"><i class="fa-solid fa-house-chimney"></i></div>
+  <div><h1 style="font-size:15px;color:#0b2e6e">INVERSIONES GRACE</h1><span class="rol-badge" id="rolTexto">Rol: --</span></div>
+</div>
+<nav id="mainNav">
+<a id="nav-inicio" class="active" onclick="ver('inicio')">Inicio</a>
+<a id="nav-catalogo" onclick="ver('catalogo')">Catálogo</a>
+<a id="nav-carrito" onclick="ver('carrito')">Carrito (<span id="count">0</span>)</a>
+<a id="nav-proveedores" onclick="ver('proveedores')">Proveedores</a>
+<a id="nav-inventario" onclick="ver('inventario')">Inventario</a>
+<a id="nav-clientes" onclick="ver('clientes')">Clientes</a>
+<a id="nav-facturas" onclick="ver('facturas')">Facturación</a>
+<a id="nav-creditos" onclick="ver('creditos')">Créditos</a>
+<a id="nav-cierre" onclick="ver('cierre')">Cierre</a>
+<a id="nav-diagrama" onclick="ver('diagrama')">Diagrama</a>
+<a id="nav-contacto" onclick="ver('contacto')">Contacto</a>
+<a id="nav-mision" onclick="ver('mision')">Misión</a>
+<a onclick="logout()" style="background:#ffe1e1;color:#c53030"><i class="fa-solid fa-right-from-bracket"></i></a>
+</nav>
+</header>
+
+<div id="sec-inicio" class="seccion">
+<div id="inicioAdmin">
+<div class="hero"><h2>INVERSIONES GRACE - Panel Administrador</h2><p style="margin-top:8px;opacity:0.9">Control total de tu negocio en Omoa</p></div>
+<div class="stats"><div class="stat-card"><small>Ventas</small><h3 id="stat-ventas">L 0</h3><small id="stat-num">0 facturas</small></div><div class="stat-card"><small>Productos</small><h3>25</h3></div><div class="stat-card"><small>Clientes</small><h3 id="stat-clientes">0</h3></div><div class="stat-card"><small>Créditos</small><h3 id="stat-creditos">0</h3></div></div>
+</div>
+<div id="inicioCliente" class="hidden">
+<div class="hero"><h2>Bienvenido a Inversiones Grace</h2><p style="margin-top:8px">Todo para tu hogar en Omoa</p><div style="margin-top:20px;display:flex;justify-content:center"><button onclick="ver('catalogo')" style="background:#ffcc00;color:#0b2e6e;padding:14px 28px;border:none;border-radius:12px;font-weight:800;cursor:pointer">Ver Catálogo</button></div></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px">
+<div class="box" style="text-align:center"><h4>✅ Garantía</h4><p style="font-size:12px;color:#6b7a99">1 año</p></div>
+<div class="box" style="text-align:center"><h4>💳 Crédito</h4><p style="font-size:12px;color:#6b7a99">Hasta 36 meses</p></div>
+<div class="box" style="text-align:center"><h4>🚚 Entrega</h4><p style="font-size:12px;color:#6b7a99">Omoa</p></div>
+</div>
+</div>
+</div>
+
+<div id="sec-catalogo" class="seccion"><h2 style="color:#0b2e6e">Catálogo</h2><div style="display:flex;gap:10px;margin:14px 0"><input type="text" id="buscador" placeholder="Buscar..." onkeyup="filtrar()" style="flex:1;padding:11px;border:1.5px solid #e2e8f0;border-radius:12px"><select id="filtroCat" onchange="filtrar()" style="padding:11px;border-radius:12px"><option value="todos">Todas</option><option value="Electro">Electrodomésticos</option><option value="Hogar">Hogar</option><option value="Tecno">Tecnología</option><option value="Mueble">Muebles</option></select></div><div id="catalogoOrdenado"></div></div>
+
+<div id="sec-carrito" class="seccion"><div class="box-gris" style="max-width:900px;margin:auto"><h2>🛒 Carrito</h2><div id="lista-carrito"><p style="color:#888">Vacío</p></div><div style="margin-top:15px;background:white;padding:14px;border-radius:12px"><div style="display:flex;justify-content:space-between"><span>Subtotal:</span><span id="subtotal">L 0</span></div><div style="display:flex;justify-content:space-between"><span>Descuento: <small id="desc-label">0%</small></span><span id="descuento">- L 0</span></div><div style="display:flex;justify-content:space-between"><span>ISV 15%:</span><span id="isv">L 0</span></div><div style="display:flex;justify-content:space-between;font-size:20px;font-weight:800;color:#0b2e6e;margin-top:8px"><span>TOTAL:</span><span id="total">L 0</span></div></div><div class="form-cliente" style="margin-top:18px;background:white;padding:16px;border-radius:12px"><h4>Datos Factura SAR</h4><input type="text" id="clienteNombre" placeholder="Nombre completo *"><input type="text" id="clienteRTN" placeholder="RTN / Identidad *"><input type="text" id="clienteTel" placeholder="Teléfono"><select id="tipoDescuento" onchange="calcular()"><option value="0">Sin descuento</option><option value="10">Tercera Edad 10%</option><option value="5">Estudiante 5%</option><option value="15">Empleado 15%</option><option value="20">Mayoreo 20%</option><option value="8">Cliente Frecuente 8%</option><option value="12">Promoción Día 12%</option></select><select id="formaPago"><option>Efectivo</option><option>Tarjeta Crédito/Débito</option><option>Transferencia Bancaria</option><option>Crédito 12 meses</option><option>Crédito 24 meses</option><option>Crédito 36 meses</option></select><button class="btn-factura" onclick="generarFactura()">GENERAR FACTURA ORIGINAL</button><button style="width:100%;margin-top:8px;background:#e2e8f0;border:none;padding:10px;border-radius:10px;cursor:pointer" onclick="vaciar()">Vaciar</button></div></div></div>
+
+<div id="sec-proveedores" class="seccion">
+<div class="box" style="background:linear-gradient(135deg,#0b2e6e,#1e40af);color:white;border:none">
+<div style="display:flex;gap:14px;align-items:center"><div style="width:60px;height:60px;background:#ffcc00;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#0b2e6e;font-size:28px"><i class="fa-solid fa-truck-field"></i></div><div><h2>Proveedores - Compra Mayoreo</h2><p style="opacity:0.85;font-size:13px">Solo Administrador - Gestión de compras mayoreo</p></div></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px" id="listaProveedores"></div>
+<div class="box" style="margin-top:16px"><h4>Agregar Proveedor</h4><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px"><input type="text" id="provNombre" placeholder="Nombre empresa"><input type="text" id="provTel" placeholder="Teléfono"><input type="text" id="provProd" placeholder="Productos que surte"><input type="text" id="provCiudad" placeholder="Ciudad"></div><button onclick="agregarProveedor()" style="width:100%;margin-top:10px;background:#0b2e6e;color:white;border:none;padding:11px;border-radius:10px;font-weight:700">+ Agregar Proveedor</button></div>
+</div>
+
+<div id="sec-inventario" class="seccion">
+<div class="box" style="background:linear-gradient(135deg,#0b2e6e,#1e40af);color:white;border:none">
+<div style="display:flex;justify-content:space-between;align-items:center"><div><h2><i class="fa-solid fa-boxes-stacked"></i> Inventario - Control Stock</h2><p style="opacity:0.85;font-size:12px">Rojo = menos de 5 unidades (surtir), Verde = stock bien</p></div><div style="background:white;color:#0b2e6e;padding:8px 14px;border-radius:20px;font-weight:800;font-size:12px" id="alertStock">0 productos bajos</div></div>
+</div>
+<div class="box"><div id="tablaInventario"></div></div>
+</div>
+
+<div id="sec-clientes" class="seccion"><div class="box" style="background:linear-gradient(135deg,#0b2e6e,#1e40af);color:white"><h2>Clientes</h2></div><div class="clientes-grid" id="lista-clientes-tabla" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px"></div></div>
+<div id="sec-facturas" class="seccion"><div class="box"><h2>Facturación</h2><div id="tabla-facturas"></div></div></div>
+
+<div id="sec-creditos" class="seccion"><div class="box"><h2 id="tituloCreditos">Créditos</h2><div id="boxFiltroCreditoCliente" class="hidden" style="background:#fffbeb;padding:16px;border-radius:12px;border:2px dashed #f59e0b;margin-top:12px"><label style="font-size:13px;font-weight:700;color:#92400e">Ingresa tu RTN para ver tus créditos</label><div style="display:flex;gap:8px;margin-top:10px"><input type="text" id="filtroRTNCliente" placeholder="Ej. 0503-1990-12345" style="flex:1;padding:12px;border:2px solid #fbbf24;border-radius:10px"><button onclick="renderCreditos()" style="background:#0b2e6e;color:white;border:none;padding:12px 18px;border-radius:10px;font-weight:700">Ver</button></div></div><div id="tabla-creditos" style="margin-top:14px"></div></div></div>
+
+<div id="sec-cierre" class="seccion"><div class="box" id="printAreaCierre"><div style="text-align:center;border-bottom:3px solid #0b2e6e;padding-bottom:12px"><h2 style="color:#0b2e6e">CIERRE DE CAJA</h2><p style="font-size:12px">Fecha: <span id="fecha-cierre"></span></p></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px"><div><h4 style="color:green">INGRESOS</h4><div id="tablaIngresos"></div><h3 style="margin-top:10px;color:green"><span id="c-ingresos">L 0</span></h3></div><div><h4 style="color:#e63946">EGRESOS</h4><div id="tablaEgresos"></div><h3 style="margin-top:10px;color:#e63946"><span id="c-egresos">L 0</span></h3></div></div><div style="margin-top:18px;padding:14px;background:#eef3ff;border-radius:12px;display:flex;justify-content:space-between"><span style="font-weight:700">BALANCE:</span><span id="c-total" style="font-size:22px;font-weight:800;color:#0b2e6e">L 0</span></div></div><div class="box" style="margin-top:14px"><input type="text" id="egresoConcepto" placeholder="Concepto" style="width:100%;padding:10px;margin-bottom:6px;border:1.5px solid #e2e8f0;border-radius:10px"><input type="number" id="egresoMonto" placeholder="Monto L" style="width:100%;padding:10px;border:1.5px solid #e2e8f0;border-radius:10px"><button onclick="agregarEgreso()" style="width:100%;margin-top:8px;background:#ffcc00;color:#0b2e6e;border:none;padding:11px;border-radius:10px;font-weight:700">+ Agregar Egreso</button><button onclick="imprimirCierreReal()" style="width:100%;margin-top:8px;background:#0b2e6e;color:white;border:none;padding:11px;border-radius:10px">Imprimir solo Ingresos y Egresos</button></div></div>
+
+<div id="sec-diagrama" class="seccion">
+<div class="box" style="border:2px solid #0b2e6e">
+<div style="text-align:center"><div style="width:70px;height:70px;background:linear-gradient(135deg,#0b2e6e,#3b82f6);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:white;font-size:32px"><i class="fa-solid fa-diagram-project"></i></div><h2 style="color:#0b2e6e">Diagrama de Funcionamiento</h2><p style="font-size:13px;color:#6b7a99;margin-top:6px">Inversiones Grace S. de R.L.</p></div>
+<div class="diagrama-vertical">
+<div class="paso"><div class="paso-num">1</div><div><h4><i class="fa-solid fa-truck-field"></i> Proveedores</h4><p style="font-size:12px;color:#6b7a99">Compra mayoreo a proveedores en SPS</p></div></div>
+<div class="paso"><div class="paso-num">2</div><div><h4><i class="fa-solid fa-boxes-stacked"></i> Inventario</h4><p style="font-size:12px;color:#6b7a99">Control de 25 productos con alerta stock bajo</p></div></div>
+<div class="paso"><div class="paso-num">3</div><div><h4><i class="fa-solid fa-store"></i> Catálogo</h4><p style="font-size:12px;color:#6b7a99">Cliente ve productos por categorías</p></div></div>
+<div class="paso"><div class="paso-num">4</div><div><h4><i class="fa-solid fa-cart-shopping"></i> Carrito</h4><p style="font-size:12px;color:#6b7a99">Agrega productos y descuentos</p></div></div>
+<div class="paso"><div class="paso-num">5</div><div><h4><i class="fa-solid fa-file-invoice-dollar"></i> Facturación SAR</h4><p style="font-size:12px;color:#6b7a99">Factura original con CAI, RTN, ISV</p></div></div>
+<div class="paso"><div class="paso-num">6</div><div><h4><i class="fa-solid fa-users"></i> Clientes</h4><p style="font-size:12px;color:#6b7a99">Registro automático de clientes</p></div></div>
+<div class="paso"><div class="paso-num">7</div><div><h4><i class="fa-solid fa-hand-holding-dollar"></i> Créditos y Pagos</h4><p style="font-size:12px;color:#6b7a99">Gestión de créditos 12, 24, 36 meses</p></div></div>
+<div class="paso"><div class="paso-num" style="background:linear-gradient(135deg,#ffcc00,#ffb700);color:#0b2e6e"><i class="fa-solid fa-coins"></i></div><div><h4><i class="fa-solid fa-cash-register"></i> Cierre de Caja</h4><p style="font-size:12px;color:#6b7a99">Ingresos - Egresos = Balance final</p></div></div>
+</div>
+</div>
+</div>
+
+<div id="sec-contacto" class="seccion">
+<div class="box" style="border:2px solid #0b2e6e;padding:0;overflow:hidden">
+<div style="background:linear-gradient(135deg,#0b2e6e,#1e40af);color:white;padding:28px;display:flex;gap:16px;align-items:center"><div style="width:70px;height:70px;background:#ffcc00;border-radius:18px;display:flex;align-items:center;justify-content:center;color:#0b2e6e;font-size:32px"><i class="fa-solid fa-store"></i></div><div><h2>Inversiones Grace S. de R.L.</h2><p style="opacity:0.85;font-size:13px">Omoa, Cortés</p></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+<div style="padding:24px"><p style="font-size:13px;padding:10px;background:#f8faff;border-radius:10px;margin-bottom:10px"><b>Dirección:</b> Frente Parque Central, Omoa, Cortés - 50mts Banco Atlántida</p><p style="font-size:13px;padding:10px;background:#f8faff;border-radius:10px;margin-bottom:10px"><b>RTN:</b> 05039999123456</p><p style="font-size:13px;padding:10px;background:#fffbeb;border-radius:10px"><b>CAI:</b> A1B2C3-D4E5F6-G7H8I9-J0K1L2-M3N4O5-P6</p></div>
+<div style="padding:24px;background:#f8faff;border-left:1px solid #eef2f7"><p style="font-size:14px;padding:12px;background:white;border-radius:12px;margin-bottom:10px"><b>Tel:</b> <span style="font-size:18px;font-weight:800;color:#0b2e6e">99999999</span></p><p style="font-size:13px;padding:10px;background:white;border-radius:10px;margin-bottom:10px"><b>Email:</b> inversionesgrace.hn@gmail.com</p><p style="font-size:13px;padding:10px;background:white;border-radius:10px"><b>Horario:</b> Lun-Sáb 8am-6pm, Dom 8am-12pm</p></div>
+</div>
+</div>
+</div>
+
+<div id="sec-mision" class="seccion">
+<div class="mision-grid">
+<div style="background:linear-gradient(135deg,#0b2e6e,#1e40af);color:white;padding:32px;border-radius:20px"><h2>Misión</h2><p style="font-size:14px;line-height:1.8;margin-top:12px">Brindar a familias de Omoa electrodomésticos y hogar de calidad a precios justos con crédito fácil, garantía real y atención humana.</p></div>
+<div style="background:linear-gradient(135deg,#fff7cc 0%,#ffcc00 100%);color:#0b2e6e;padding:32px;border-radius:20px"><h2>Visión</h2><p style="font-size:14px;line-height:1.8;margin-top:12px">Ser la tienda líder en Omoa y Puerto Cortés por confianza y servicio, expandiéndonos a nivel nacional.</p><div style="margin-top:16px;background:white;padding:12px;border-radius:12px"><p style="font-size:11px;font-weight:800">VALORES</p><p style="font-size:12px">Honestidad • Servicio • Calidad • Compromiso</p></div></div>
+</div>
+</div>
+
+<div id="facturaModal">
+<div id="facturaBox">
+<!-- FACTURA ORIGINAL DISEÑO HONDURAS -->
+<div style="background:linear-gradient(135deg,#0b2e6e,#1e40af);color:white;padding:18px 24px;display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;gap:12px;align-items:center"><div style="width:50px;height:50px;background:#ffcc00;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#0b2e6e;font-size:22px"><i class="fa-solid fa-house-chimney"></i></div><div><h2 style="font-size:18px">INVERSIONES GRACE</h2><p style="font-size:10px;opacity:0.9">S. de R.L. - Omoa, Cortés</p></div></div>
+<div style="text-align:right"><h3 style="background:#ffcc00;color:#0b2e6e;padding:6px 14px;border-radius:20px;font-size:14px">FACTURA</h3><p style="font-size:11px;margin-top:6px" id="fact-num"></p></div>
+</div>
+<div style="padding:12px 20px;background:#fffbeb;border-bottom:1px dashed #f59e0b;display:flex;justify-content:space-between;font-size:10px">
+<div>RTN: 05039999123456 | CAI: A1B2C3-D4E5F6-G7H8I9-J0K1L2-M3N4O5-P6</div><div>Rango: 000-001-01-00000001 al 000-001-01-00001000</div>
+</div>
+<div style="padding:18px 24px">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:12px;background:#f8faff;padding:12px;border-radius:10px">
+<div><p><b>Cliente:</b> <span id="f-cliente"></span></p><p><b>RTN/ID:</b> <span id="f-rtn"></span></p><p><b>Fecha:</b> <span id="f-fecha"></span></p></div>
+<div style="text-align:right"><p><b>Forma Pago:</b> <span id="f-pago"></span></p><p><b>Tel:</b> <span id="f-tel"></span></p><p><b>Vendedor:</b> Grace</p></div>
+</div>
+<table style="margin-top:14px"><thead><tr><th style="background:#0b2e6e;color:white">Cant</th><th style="background:#0b2e6e;color:white">Descripción</th><th style="background:#0b2e6e;color:white">P/Unit</th><th style="background:#0b2e6e;color:white">Total</th></tr></thead><tbody id="f-detalle"></tbody></table>
+<div style="text-align:right;margin-top:14px;font-size:12px;background:#f8faff;padding:12px;border-radius:10px">
+<p>Subtotal: <b><span id="f-sub"></span></b></p><p>Descuento (<span id="f-desc-label"></span>): <b style="color:#e63946">- <span id="f-desc-val"></span></b></p><p>Importe Exonerado: L 0.00</p><p>ISV 15%: <b><span id="f-isv"></span></b></p><div style="border-top:2px solid #0b2e6e;margin-top:8px;padding-top:8px"><h3 style="color:#0b2e6e">TOTAL A PAGAR L <span id="f-total"></span></h3></div>
+</div>
+<div style="margin-top:14px;padding:10px;background:#eef3ff;border-radius:8px;font-size:9px;color:#4a5568;text-align:center">La factura es beneficio de todos, exíjala | Original: Cliente - Copia: Obligado Tributario Emisor | Gracias por su compra en Omoa</div>
+</div>
+<div style="text-align:center;padding:12px;background:#f8faff"><button onclick="window.print()" style="background:#0b2e6e;color:white;border:none;padding:10px 20px;border-radius:8px;margin-right:8px"><i class="fa-solid fa-print"></i> Imprimir Factura Original</button> <button onclick="cerrarFactura()" style="background:#e2e8f0;border:none;padding:10px 20px;border-radius:8px">Cerrar</button></div>
+</div>
+</div>
+
+<script>
+let rolActual=null;
+const productosData=[
+{id:1,nombre:"Licuadora Oster",precio:850,old:1200,desc:"2 vel, vaso vidrio 1.5L",cat:"Electro",stock:12,img:"https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=400&q=80"},
+{id:2,nombre:"Plancha Black+Decker",precio:650,old:900,desc:"Vapor y antiadherente",cat:"Electro",stock:4,img:"https://images.unsplash.com/photo-1585237672814-8c0a5a62e0a5?auto=format&fit=crop&w=400&q=80"},
+{id:3,nombre:"Arrocera 1.8L",precio:780,old:1100,desc:"Con vaporera",cat:"Electro",stock:15,img:"https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=400&q=80"},
+{id:4,nombre:"Ventilador 16''",precio:920,old:1300,desc:"3 velocidades",cat:"Electro",stock:3,img:"https://images.unsplash.com/photo-1618944847828-82e943c3bdb7?auto=format&fit=crop&w=400&q=80"},
+{id:5,nombre:"Cafetera 12 tazas",precio:680,old:950,desc:"Programable",cat:"Electro",stock:8,img:"https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=400&q=80"},
+{id:6,nombre:"Tostadora 2 reb",precio:520,old:750,desc:"Acero inoxidable",cat:"Electro",stock:20,img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&q=80"},
+{id:7,nombre:"Cepillo Secador",precio:600,old:850,desc:"2 en 1",cat:"Electro",stock:2,img:"https://images.unsplash.com/photo-1522338140262-f46f5913618a?auto=format&fit=crop&w=400&q=80"},
+{id:8,nombre:"Freidora Aire 4.5L",precio:950,old:1350,desc:"Sin aceite",cat:"Electro",stock:6,img:"https://images.unsplash.com/photo-1585237672814-8c0a5a62e0a5?auto=format&fit=crop&w=400&q=80"},
+{id:9,nombre:"Microondas 20L",precio:980,old:1400,desc:"Digital",cat:"Electro",stock:9,img:"https://images.unsplash.com/photo-1585659722983-3a675dabf23d?w=400"},
+{id:10,nombre:"Rasuradora",precio:500,old:700,desc:"Recargable",cat:"Electro",stock:14,img:"https://images.unsplash.com/photo-1621607511492-030d8c0d9c5a?auto=format&fit=crop&w=400&q=80"},
+{id:11,nombre:"Juego Vasos 6pzas",precio:280,old:400,desc:"Vidrio templado",cat:"Hogar",stock:25,img:"https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=80"},
+{id:12,nombre:"Extensión 5m",precio:250,old:350,desc:"Con regleta",cat:"Hogar",stock:4,img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80"},
+{id:13,nombre:"Olla Presión 6L",precio:890,old:1200,desc:"Acero inoxidable",cat:"Hogar",stock:7,img:"https://images.unsplash.com/photo-1585515656627-1d03a0d7e39c?auto=format&fit=crop&w=400&q=80"},
+{id:14,nombre:"Sartenes 3pzas",precio:950,old:1350,desc:"Antiadherentes",cat:"Hogar",stock:10,img:"https://images.unsplash.com/photo-1585515656548-0e3f2c4d2b3e?auto=format&fit=crop&w=400&q=80"},
+{id:15,nombre:"Set Cuchillos 5pzas",precio:420,old:600,desc:"Acero filo",cat:"Hogar",stock:18,img:"https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=400&q=80"},
+{id:16,nombre:"Organizador Zapatos",precio:380,old:550,desc:"Plegable 12 pares",cat:"Hogar",stock:3,img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80"},
+{id:17,nombre:"Lámpara LED Mesa",precio:320,old:480,desc:"Táctil 3 colores",cat:"Hogar",stock:11,img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=400&q=80"},
+{id:18,nombre:"Bocina Bluetooth 80W",precio:750,old:1000,desc:"Bass potente",cat:"Tecno",stock:5,img:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e?auto=format&fit=crop&w=400&q=80"},
+{id:19,nombre:"Audífonos Bluetooth",precio:350,old:550,desc:"Con estuche",cat:"Tecno",stock:22,img:"https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=400&q=80"},
+{id:20,nombre:"Foco LED WiFi",precio:220,old:350,desc:"RGB con celular",cat:"Tecno",stock:30,img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80"},
+{id:21,nombre:"Smartwatch",precio:850,old:1200,desc:"Pasos y ritmo",cat:"Tecno",stock:8,img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80"},
+{id:22,nombre:"Cargador 65W",precio:280,old:400,desc:"Carga rápida",cat:"Tecno",stock:16,img:"https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=400&q=80"},
+{id:23,nombre:"Alfombra Sala",precio:650,old:900,desc:"Antideslizante",cat:"Mueble",stock:6,img:"https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=400&q=80"},
+{id:24,nombre:"Mesa de Noche",precio:780,old:1050,desc:"Madera pino",cat:"Mueble",stock:4,img:"https://images.unsplash.com/photo-1532372320572-cda25653a694?auto=format&fit=crop&w=400&q=80"},
+{id:25,nombre:"Silla Escritorio",precio:980,old:1350,desc:"Ergonómica",cat:"Mueble",stock:9,img:"https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=400&q=80"}
+];
+let productos = JSON.parse(localStorage.getItem('grace_productos')) || productosData;
+let carrito=[]; let facturas=JSON.parse(localStorage.getItem('grace_facturas')||'[]'); let egresos=JSON.parse(localStorage.getItem('grace_egresos')||'[]');
+let proveedores = JSON.parse(localStorage.getItem('grace_proveedores')) || [
+{nombre:"Distribuidora Mayorista SPS", tel:"9999-1111", productos:"Electrodomésticos Oster, Black+Decker", ciudad:"San Pedro Sula"},
+{nombre:"Importadora Hogar HN", tel:"8888-2222", productos:"Vasos, ollas, sartenes, hogar", ciudad:"Tegucigalpa"},
+{nombre:"TecnoMayorista", tel:"7777-3333", productos:"Bocinas, audífonos, focos LED", ciudad:"San Pedro Sula"},
+{nombre:"Muebles Cortes", tel:"6666-4444", productos:"Alfombras, mesas, sillas", ciudad:"Puerto Cortés"}
+];
+
+function login(rol){
+  rolActual=rol;
+  document.getElementById('loginScreen').style.display='none';
+  document.getElementById('mainHeader').style.display='flex';
+  document.getElementById('rolTexto').innerText = rol==='admin' ? 'Rol: Administrador' : 'Rol: Cliente';
+  document.getElementById('rolTexto').style.background = rol==='admin' ? '#0b2e6e' : '#ffcc00';
+  document.getElementById('rolTexto').style.color = rol==='admin' ? 'white' : '#0b2e6e';
+  if(rol==='cliente'){
+    document.getElementById('nav-proveedores').classList.add('hidden');
+    document.getElementById('nav-inventario').classList.add('hidden');
+    document.getElementById('nav-clientes').classList.add('hidden');
+    document.getElementById('nav-facturas').classList.add('hidden');
+    document.getElementById('nav-cierre').classList.add('hidden');
+    document.getElementById('inicioAdmin').classList.add('hidden');
+    document.getElementById('inicioCliente').classList.remove('hidden');
+    document.getElementById('boxFiltroCreditoCliente').classList.remove('hidden');
+    document.getElementById('nav-diagrama').classList.remove('hidden');
+    document.getElementById('nav-contacto').classList.remove('hidden');
+    document.getElementById('tituloCreditos').innerText='Mis Créditos';
+  }else{
+    document.querySelectorAll('#mainNav a').forEach(a=>a.classList.remove('hidden'));
+    document.getElementById('inicioAdmin').classList.remove('hidden');
+    document.getElementById('inicioCliente').classList.add('hidden');
+    document.getElementById('boxFiltroCreditoCliente').classList.add('hidden');
+    document.getElementById('tituloCreditos').innerText='Créditos';
+  }
+  ver('inicio');
+}
+function logout(){location.reload();}
+function ver(sec){document.querySelectorAll('.seccion').forEach(s=>s.classList.remove('active'));document.getElementById('sec-'+sec).classList.add('active');document.querySelectorAll('#mainNav a').forEach(a=>a.classList.remove('active'));let nav=document.getElementById('nav-'+sec);if(nav)nav.classList.add('active');if(sec==='catalogo')renderCatalogoOrdenado();if(sec==='facturas')renderFacturas();if(sec==='creditos')renderCreditos();if(sec==='cierre')renderCierre();if(sec==='inicio')renderStats();if(sec==='clientes')renderClientes();if(sec==='inventario')renderInventario();if(sec==='proveedores')renderProveedores();}
+
+function renderProveedores(){document.getElementById('listaProveedores').innerHTML=proveedores.map(p=>`<div class="box"><h4 style="color:#0b2e6e"><i class="fa-solid fa-truck"></i> ${p.nombre}</h4><p style="font-size:12px;margin-top:8px"><b>Tel:</b> ${p.tel}<br><b>Ciudad:</b> ${p.ciudad}<br><b>Surtido:</b> ${p.productos}</p><span style="background:#dcfce7;color:#166534;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;margin-top:8px;display:inline-block">Mayoreo Activo</span></div>`).join('');}
+function agregarProveedor(){let n=document.getElementById('provNombre').value, t=document.getElementById('provTel').value, pr=document.getElementById('provProd').value, c=document.getElementById('provCiudad').value;if(!n)return alert('Nombre');proveedores.push({nombre:n,tel:t,productos:pr,ciudad:c});localStorage.setItem('grace_proveedores',JSON.stringify(proveedores));renderProveedores();}
+
+function renderInventario(){
+  let bajos=productos.filter(p=>p.stock<5).length;
+  document.getElementById('alertStock').innerText=bajos+' productos bajos en stock';
+  document.getElementById('tablaInventario').innerHTML='<table><tr><th>Producto</th><th>Categoría</th><th>Stock</th><th>Estado</th><th>Acción</th></tr>'+productos.map(p=>`<tr><td><b>${p.nombre}</b><br><small>L ${p.precio}</small></td><td>${p.cat}</td><td><b>${p.stock}</b> unidades</td><td>${p.stock<5?'<span class="stock-rojo"><i class="fa-solid fa-triangle-exclamation"></i> BAJO - Surtir</span>':'<span class="stock-verde"><i class="fa-solid fa-check"></i> Bien</span>'}</td><td><button onclick="sumarStock(${p.id})" style="background:#0b2e6e;color:white;border:none;padding:6px 12px;border-radius:8px;font-size:11px;cursor:pointer">+5 Stock</button></td></tr>`).join('')+'</table>';
+}
+function sumarStock(id){let p=productos.find(x=>x.id===id);p.stock+=5;localStorage.setItem('grace_productos',JSON.stringify(productos));renderInventario();}
+
+function renderCatalogoOrdenado(){
+  let cont=document.getElementById('catalogoOrdenado');
+  let categorias=[{key:"Electro", label:"Electrodomésticos"}, {key:"Hogar", label:"Hogar"}, {key:"Tecno", label:"Tecnología"}, {key:"Mueble", label:"Muebles"}];
+  let busqueda=document.getElementById('buscador').value.toLowerCase();
+  let filtroCat=document.getElementById('filtroCat').value;
+  cont.innerHTML=categorias.map(cat=>{
+    let prods=productos.filter(p=>p.cat===cat.key && (filtroCat==='todos'||filtroCat===cat.key) && p.nombre.toLowerCase().includes(busqueda));
+    if(prods.length===0) return '';
+    return `<div class="catalogo-section"><div class="catalogo-titulo"><h3 style="font-size:14px;color:#0b2e6e">${cat.label}</h3><span style="background:#eef3ff;color:#0b2e6e;padding:2px 10px;border-radius:20px;font-size:11px">${prods.length}</span></div><div class="catalogo-grid">${prods.map(p=>`<div class="card"><img src="${p.img}" onerror="this.src='https://dummyimage.com/400x300/0b2e6e/ffffff&text=${encodeURIComponent(p.nombre)}'"><h3>${p.nombre}</h3><div class="desc">${p.desc}</div><div><span class="old">L ${p.old}</span><span class="price">L ${p.precio}</span></div><button onclick="agregar(${p.id})">Agregar</button></div>`).join('')}</div></div>`;
+  }).join('');
+}
+function filtrar(){renderCatalogoOrdenado();}
+function agregar(id){
+  let prod=productos.find(p=>p.id===id);
+  if(prod.stock<=0){alert('Sin stock, surtir en Inventario');return}
+  let ex=carrito.find(c=>c.id===id);if(ex){ex.cant++}else{carrito.push({...prod,cant:1})}actualizar();
+}
+function actualizar(){document.getElementById('count').innerText=carrito.reduce((s,c)=>s+c.cant,0);let lista=document.getElementById('lista-carrito');if(carrito.length===0){lista.innerHTML='<p style=color:#888>Vacío</p>';}else{lista.innerHTML=carrito.map(c=>`<div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e2e8f0"><div><b style="font-size:13px">${c.nombre}</b><br><small>L ${c.precio} x ${c.cant}</small></div><b>L ${c.precio*c.cant}</b></div>`).join('');}calcular();}
+function vaciar(){carrito=[];actualizar();}
+function calcular(){let sub=carrito.reduce((s,c)=>s+c.precio*c.cant,0);let porc=parseInt(document.getElementById('tipoDescuento').value||0);let desc=sub*(porc/100);let base=sub-desc;let isv=base*0.15;let total=base+isv;document.getElementById('subtotal').innerText='L '+sub.toFixed(2);document.getElementById('descuento').innerText='- L '+desc.toFixed(2);document.getElementById('desc-label').innerText=porc+'%';document.getElementById('isv').innerText='L '+isv.toFixed(2);document.getElementById('total').innerText='L '+total.toFixed(2);return {sub,desc,base,isv,total,porc}}
+function generarFactura(){
+  if(carrito.length===0){alert('Carrito vacío');return}
+  let nombre=document.getElementById('clienteNombre').value.trim();let rtn=document.getElementById('clienteRTN').value.trim();let tel=document.getElementById('clienteTel').value.trim();
+  if(!nombre||!rtn){alert('Debes llenar Nombre y RTN');return;}
+  let pago=document.getElementById('formaPago').value;let t=calcular();let num='000-001-01-00000'+(facturas.length+1).toString().padStart(3,'0');let fecha=new Date().toLocaleDateString('es-HN');
+  document.getElementById('fact-num').innerText=num;document.getElementById('f-fecha').innerText=fecha;document.getElementById('f-cliente').innerText=nombre;document.getElementById('f-rtn').innerText=rtn;document.getElementById('f-pago').innerText=pago;document.getElementById('f-tel').innerText=tel||'N/A';
+  document.getElementById('f-detalle').innerHTML=carrito.map(c=>`<tr><td>${c.cant}</td><td>${c.nombre}</td><td>L ${c.precio}</td><td>L ${c.precio*c.cant}</td></tr>`).join('');
+  document.getElementById('f-sub').innerText='L '+t.sub.toFixed(2);document.getElementById('f-desc-val').innerText='L '+t.desc.toFixed(2);document.getElementById('f-desc-label').innerText=t.porc+'%';document.getElementById('f-isv').innerText='L '+t.isv.toFixed(2);document.getElementById('f-total').innerText=t.total.toFixed(2);
+  document.getElementById('facturaModal').style.display='block';
+  // Restar stock
+  carrito.forEach(c=>{let p=productos.find(x=>x.id===c.id);if(p){p.stock-=c.cant; if(p.stock<0)p.stock=0;}});
+  localStorage.setItem('grace_productos',JSON.stringify(productos));
+  facturas.unshift({num,fecha,nombre,rtn,pago,total:t.total});localStorage.setItem('grace_facturas',JSON.stringify(facturas));
+}
+function cerrarFactura(){document.getElementById('facturaModal').style.display='none';vaciar();}
+function renderFacturas(){let cont=document.getElementById('tabla-facturas');if(facturas.length===0){cont.innerHTML='<p>No hay facturas</p>';return}cont.innerHTML='<table><tr><th>No</th><th>Fecha</th><th>Cliente</th><th>Pago</th><th>Total</th></tr>'+facturas.map(f=>`<tr><td>${f.num}</td><td>${f.fecha}</td><td>${f.nombre}</td><td>${f.pago}</td><td>L ${f.total.toFixed(2)}</td></tr>`).join('')+'</table>';}
+function renderClientes(){let cont=document.getElementById('lista-clientes-tabla');if(facturas.length===0){cont.innerHTML='<p>No hay clientes</p>';return}let uniq=[...new Map(facturas.map(f=>[f.rtn,f])).values()];cont.innerHTML=uniq.map(c=>{let total=facturas.filter(f=>f.rtn===c.rtn).reduce((s,f)=>s+f.total,0);return `<div class="cliente-card"><div class="avatar">${c.nombre.charAt(0)}</div><div><b>${c.nombre}</b><br><small>${c.rtn} - L ${total.toFixed(2)}</small></div></div>`}).join('');}
+function renderCreditos(){let cont=document.getElementById('tabla-creditos');let cred=facturas.filter(f=>f.pago.includes('Crédito'));if(rolActual==='cliente'){let rtnFiltro=document.getElementById('filtroRTNCliente').value.trim().toLowerCase();if(!rtnFiltro){cont.innerHTML='<div style="text-align:center;padding:20px;background:#fffbeb;border-radius:12px"><p>Ingresa tu RTN arriba para ver tus créditos</p></div>';return}cred=cred.filter(f=>f.rtn.toLowerCase().includes(rtnFiltro));}if(cred.length===0){cont.innerHTML='<p>No hay créditos</p>';return}cont.innerHTML='<table><tr><th>Factura</th><th>Cliente</th><th>RTN</th><th>Total</th><th>Prima</th><th>Saldo</th><th>Cuota</th></tr>'+cred.map(f=>{let prima=f.total*0.2;let saldo=f.total-prima;let meses=f.pago.includes('12')?12:f.pago.includes('24')?24:36;return `<tr><td>${f.num}</td><td>${f.nombre}</td><td>${f.rtn}</td><td>L ${f.total.toFixed(2)}</td><td>L ${prima.toFixed(2)}</td><td style="color:red;font-weight:700">L ${saldo.toFixed(2)}</td><td>L ${(saldo/meses).toFixed(2)} x ${meses}m</td></tr>`}).join('')+'</table>';}
+function agregarEgreso(){let concepto=document.getElementById('egresoConcepto').value;let monto=parseFloat(document.getElementById('egresoMonto').value);if(!concepto||!monto)return alert('Llena concepto y monto');egresos.unshift({concepto,monto,fecha:new Date().toLocaleDateString('es-HN')});localStorage.setItem('grace_egresos',JSON.stringify(egresos));document.getElementById('egresoConcepto').value='';document.getElementById('egresoMonto').value='';renderCierre();}
+function renderCierre(){document.getElementById('fecha-cierre').innerText=new Date().toLocaleDateString('es-HN');let totalIngresos=facturas.reduce((s,f)=>s+f.total,0);let totalEgresos=egresos.reduce((s,e)=>s+e.monto,0);document.getElementById('c-ingresos').innerText='L '+totalIngresos.toFixed(2);document.getElementById('c-egresos').innerText='L '+totalEgresos.toFixed(2);document.getElementById('c-total').innerText='L '+(totalIngresos-totalEgresos).toFixed(2);document.getElementById('tablaIngresos').innerHTML=facturas.length?'<table><tr><th>Fecha</th><th>Concepto</th><th>Monto</th></tr>'+facturas.map(f=>`<tr><td>${f.fecha}</td><td>${f.num} - ${f.nombre}</td><td style="color:green;font-weight:700">+ L ${f.total.toFixed(2)}</td></tr>`).join('')+'</table>':'<p>Sin ingresos</p>';document.getElementById('tablaEgresos').innerHTML=egresos.length?'<table><tr><th>Fecha</th><th>Concepto</th><th>Monto</th></tr>'+egresos.map(e=>`<tr><td>${e.fecha}</td><td>${e.concepto}</td><td style="color:red;font-weight:700">- L ${e.monto.toFixed(2)}</td></tr>`).join('')+'</table>':'<p>Sin egresos</p>';}
+function imprimirCierreReal(){let w=window.open('','','width=900,height=700');let html=document.getElementById('printAreaCierre').innerHTML;w.document.write('<html><head><title>Cierre</title><style>body{font-family:Arial;padding:20px} table{width:100%;border-collapse:collapse} th{background:#0b2e6e;color:white;padding:8px} td{border:1px solid #ddd;padding:6px;font-size:12px}</style></head><body>'+html+'</body></html>');w.document.close();w.print();}
+function renderStats(){let total=facturas.reduce((s,f)=>s+f.total,0);document.getElementById('stat-ventas').innerText='L '+total.toFixed(2);document.getElementById('stat-num').innerText=facturas.length+' facturas';document.getElementById('stat-clientes').innerText=[...new Set(facturas.map(f=>f.rtn))].length;document.getElementById('stat-creditos').innerText=facturas.filter(f=>f.pago.includes('Crédito')).length;}
+</script>
+
+</body></html>
